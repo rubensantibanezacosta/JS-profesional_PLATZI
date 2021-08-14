@@ -32,4 +32,8 @@ MediaPlayer.prototype.toggleMute = function() {
     this.media.muted = !this.media.muted
   }
 
+
+
 export default MediaPlayer;
+
+
