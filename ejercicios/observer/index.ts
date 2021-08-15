@@ -36,7 +36,7 @@ class BitcoinPrice implements Subject{
 }
 
 class PriceDisplay implements Observer{
-    private el:HTMLLIElement;
+    private el:HTMLElement;
     constructor(){
         this.el=document.querySelector("#price");
     }
