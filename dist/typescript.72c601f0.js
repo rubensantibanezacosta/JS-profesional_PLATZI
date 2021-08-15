@@ -118,13 +118,76 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"ejercicios/typescript/index.ts":[function(require,module,exports) {
-console.log("Hello TypeScript");
+"use strict"; // //Boolean
+// let muted: boolean = true;
+// muted = false;
 
-function add(a, b) {
-  return a + b;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+}); // //Numeros
+// let age = "6";
+// let numerador:number =42;
+// let denominador:number = parseInt(age);
+// let resultado = numerador/denominador;
+// //String
+// let nombre: string = "Richard";
+// let saludo = `Me llamo ${nombre}`;
+// //Arrays
+// let people: string[] = [];
+// people = ["Isabel","Nicole","Raul"];
+// // people.push("900");
+// let peopleAndNumbers: Array<string | number> = []
+// peopleAndNumbers.push("Ricardo");
+// peopleAndNumbers.push(100);
+// //Enum
+// enum Color{
+//     Rojo = "Rojo",
+//     Verde = "verde",
+//     Azul = "Azul",
+//     Amarillo = "Amarillo"
+// }
+// let colorFavorito: Color = Color.Amarillo;
+// console.log(`Mi color favorito es ${colorFavorito}`);
+// //Any
+// let comodin:any = "Joker";
+// comodin = {type: "Wildcard"};
+// //Object
+// let someObject:object = {
+//     type: "Wildcard"
+// }
+//Funciones
+// function fullName(firstName:string, lastName:string = "Smith"):string{
+//     return `${firstName} ${lastName}`
+// }
+// const richard = fullName("Richard");
+// console.log(richard);
+//Interfaces
+
+var Color;
+
+(function (Color) {
+  Color["rojo"] = "Rojo";
+  Color["verde"] = "verde";
+})(Color || (Color = {}));
+
+var rect = {
+  ancho: 4,
+  alto: 6 // color: Color.rojo
+
+};
+
+function area(r) {
+  return r.ancho * r.alto;
 }
 
-var sum = add(2, 3);
+var areaTect = area(rect);
+console.log(areaTect);
+
+rect.toString = function () {
+  return this.color ? "Un rectangulo " + this.color : "Un rectangulo";
+};
+
+console.log(rect.toString());
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -153,7 +216,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57835" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62545" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

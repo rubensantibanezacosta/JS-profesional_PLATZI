@@ -198,42 +198,41 @@ AutoPlay.prototype.run = function (player) {
 
 var _default = AutoPlay;
 exports.default = _default;
-},{}],"assets/plugins/AutoPause.js":[function(require,module,exports) {
+},{}],"assets/plugins/AutoPause.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
 
-class AutoPause {
-  constructor() {
+var AutoPause = function () {
+  function AutoPause() {
     this.threshold = 0.25;
     this.handleIntersection = this.handleIntersection.bind(this);
     this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
   }
 
-  run(player) {
+  AutoPause.prototype.run = function (player) {
     this.player = player;
-    const observer = new IntersectionObserver(this.handleIntersection, {
+    var observer = new IntersectionObserver(this.handleIntersection, {
       threshold: this.threshold
     });
     observer.observe(this.player.media);
     document.addEventListener("visibilitychange", this.handleVisibilityChange);
-  }
+  };
 
-  handleIntersection(entries) {
-    const entry = entries[0];
-    const isVisible = entry.intersectionRatio >= this.threshold;
+  AutoPause.prototype.handleIntersection = function (entries) {
+    var entry = entries[0];
+    var isVisible = entry.intersectionRatio >= this.threshold;
 
     if (isVisible) {
       this.player.play();
     } else {
       this.player.pause();
     }
-  }
+  };
 
-  handleVisibilityChange() {
+  AutoPause.prototype.handleVisibilityChange = function () {
     var isVisible = document.visibilityState === 'visible';
 
     if (isVisible) {
@@ -241,12 +240,12 @@ class AutoPause {
     } else {
       this.player.pause();
     }
-  }
+  };
 
-}
+  return AutoPause;
+}();
 
-var _default = AutoPause;
-exports.default = _default;
+exports.default = AutoPause;
 },{}],"assets/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -254,7 +253,7 @@ var _mediaPlayer = _interopRequireDefault(require("./mediaPlayer.js"));
 
 var _AutoPlay = _interopRequireDefault(require("./plugins/AutoPlay.js"));
 
-var _AutoPause = _interopRequireDefault(require("./plugins/AutoPause.js"));
+var _AutoPause = _interopRequireDefault(require("./plugins/AutoPause.ts"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -279,7 +278,7 @@ if ('serviceWorker' in navigator) {
     console.log(error.message);
   });
 }
-},{"./mediaPlayer.js":"assets/mediaPlayer.js","./plugins/AutoPlay.js":"assets/plugins/AutoPlay.js","./plugins/AutoPause.js":"assets/plugins/AutoPause.js","./sw.js":[["assets\\sw.js","assets/sw.js"],"assets\\sw.js.map","assets/sw.js"]}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./mediaPlayer.js":"assets/mediaPlayer.js","./plugins/AutoPlay.js":"assets/plugins/AutoPlay.js","./plugins/AutoPause.ts":"assets/plugins/AutoPause.ts","./sw.js":[["assets\\sw.js","assets/sw.js"],"assets\\sw.js.map","assets/sw.js"]}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -307,7 +306,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57835" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62545" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
